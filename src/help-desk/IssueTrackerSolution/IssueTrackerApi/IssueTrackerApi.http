@@ -1,0 +1,6 @@
+@IssueTrackerApi_HostAddress = http://localhost:1337
+
+GET {{IssueTrackerApi_HostAddress}}/issues
+Accept: application/json
+
+###
