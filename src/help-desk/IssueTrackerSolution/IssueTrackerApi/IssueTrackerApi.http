@@ -4,3 +4,22 @@ GET {{IssueTrackerApi_HostAddress}}/issues
 Accept: application/json
 
 ###
+
+
+POST {{IssueTrackerApi_HostAddress}}/issues
+Content-Type: application/json
+ 
+{
+  "software": "Excel",
+  "description": "I want clippy back"
+}
+
+###
+
+POST {{IssueTrackerApi_HostAddress}}/issues
+Content-Type: application/json
+ 
+{
+  "software": "other app",
+  "description": "I want clippy back"
+}
