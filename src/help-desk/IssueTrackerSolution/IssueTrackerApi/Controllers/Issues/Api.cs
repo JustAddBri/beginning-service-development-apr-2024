@@ -8,10 +8,18 @@ public class Api(IDocumentSession session) : ControllerBase
 {
     // GET /issues
     [HttpGet("/issues")]
-    public async Task<ActionResult> GetTheIssuesAsync()
+    public async Task<ActionResult> GetTheIssuesAsync([FromQuery] string software = "all")
     {
-        var issues = await session.Query<Issue>().ToListAsync();
-        return Ok(issues);
+        if (software == "all")
+        {
+            var issues = await session.Query<Issue>().ToListAsync();
+            return Ok(issues);
+        }
+        else
+        {
+            var issues = await session.Query<Issue>().Where(i => i.Software == software).ToListAsync();
+            return Ok(issues);
+        }
     }
 
     [HttpGet("/issues/{id:guid}")]
