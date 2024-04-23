@@ -1,0 +1,6 @@
+@HelpDeskSupportApi_HostAddress = http://localhost:1338
+
+GET {{HelpDeskSupportApi_HostAddress}}/
+Accept: application/json
+
+###
