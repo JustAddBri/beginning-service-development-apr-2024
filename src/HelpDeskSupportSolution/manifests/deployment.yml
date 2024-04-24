@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: help-desk-support-api
+  namespace: hypertheory
+spec:
+  selector:
+    matchLabels:
+      app: help-desk-support-api
+  template:
+    metadata:
+      labels:
+        app: help-desk-support-api
+    spec:
+      containers:
+      - name: help-desk-support-api
+        image: jeffrygonzalez/help-desk-apr-2024:v0.2
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
+        ports:
+        - containerPort: 8080
