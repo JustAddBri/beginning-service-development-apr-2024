@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelpDeskSupportApi", "HelpDeskSupportApi\HelpDeskSupportApi.csproj", "{6A38B94E-2BBE-427E-9020-1E7AD1F84A4F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelpDeskSupportApi", "HelpDeskSupportApi\HelpDeskSupportApi.csproj", "{BC6FC0E1-5F8A-43DB-ABB7-96C04AF88B34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelpDeskSupportApi.UnitTests", "HelpDeskSupportApi.UnitTests\HelpDeskSupportApi.UnitTests.csproj", "{DBB0BBE6-CEB0-493B-8914-E01815528DF2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelpDeskSupportApi.UnitTests", "HelpDeskSupportApi.UnitTests\HelpDeskSupportApi.UnitTests.csproj", "{E6DAE59E-4405-442B-ABE0-94D26C4D3C06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelpDeskSupportApi.ContractTests", "HelpDeskSupportApi.ContractTests\HelpDeskSupportApi.ContractTests.csproj", "{C590935B-9E53-4405-A308-6C4192B94CF0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelpDeskSupportApi.ContractTests", "HelpDeskSupportApi.ContractTests\HelpDeskSupportApi.ContractTests.csproj", "{5ECD8C4A-7749-424D-AAE2-77F27E6A96AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,23 +15,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6A38B94E-2BBE-427E-9020-1E7AD1F84A4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6A38B94E-2BBE-427E-9020-1E7AD1F84A4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6A38B94E-2BBE-427E-9020-1E7AD1F84A4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6A38B94E-2BBE-427E-9020-1E7AD1F84A4F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DBB0BBE6-CEB0-493B-8914-E01815528DF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DBB0BBE6-CEB0-493B-8914-E01815528DF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DBB0BBE6-CEB0-493B-8914-E01815528DF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DBB0BBE6-CEB0-493B-8914-E01815528DF2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C590935B-9E53-4405-A308-6C4192B94CF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C590935B-9E53-4405-A308-6C4192B94CF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C590935B-9E53-4405-A308-6C4192B94CF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C590935B-9E53-4405-A308-6C4192B94CF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC6FC0E1-5F8A-43DB-ABB7-96C04AF88B34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC6FC0E1-5F8A-43DB-ABB7-96C04AF88B34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC6FC0E1-5F8A-43DB-ABB7-96C04AF88B34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC6FC0E1-5F8A-43DB-ABB7-96C04AF88B34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6DAE59E-4405-442B-ABE0-94D26C4D3C06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6DAE59E-4405-442B-ABE0-94D26C4D3C06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6DAE59E-4405-442B-ABE0-94D26C4D3C06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6DAE59E-4405-442B-ABE0-94D26C4D3C06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ECD8C4A-7749-424D-AAE2-77F27E6A96AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ECD8C4A-7749-424D-AAE2-77F27E6A96AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ECD8C4A-7749-424D-AAE2-77F27E6A96AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ECD8C4A-7749-424D-AAE2-77F27E6A96AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {5FE5724A-AD2F-41DE-AF89-0D629355B523}
+		SolutionGuid = {E3ABF686-A3E0-406E-BA99-F43D4FC61415}
 	EndGlobalSection
 EndGlobal

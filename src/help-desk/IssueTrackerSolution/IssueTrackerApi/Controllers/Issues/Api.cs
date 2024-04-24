@@ -7,6 +7,7 @@ namespace IssueTrackerApi.Controllers.Issues;
 
 public class Api(IDocumentSession session) : ControllerBase
 {
+
     // GET /issues
     [HttpGet("/issues")]
     public async Task<ActionResult> GetTheIssuesAsync([FromQuery] string software = "all")
@@ -27,9 +28,11 @@ public class Api(IDocumentSession session) : ControllerBase
     public async Task<ActionResult> GetIssueByIdAsync(Guid id)
     {
         var issue = await session.Query<Issue>().SingleOrDefaultAsync(i => i.Id == id);
+
         if (issue is null)
         {
             return NotFound();
+
         }
         else
         {
@@ -39,11 +42,10 @@ public class Api(IDocumentSession session) : ControllerBase
 
     [HttpPost("/issues")]
     public async Task<ActionResult> AddIssueAsync(
-        [FromBody] CreateIssueRequestModel request,
-        [FromServices] IValidator<CreateIssueRequestModel> validator)
+       [FromBody] CreateIssueRequestModel request,
+       [FromServices] IValidator<CreateIssueRequestModel> validator)
     {
         var results = await validator.ValidateAsync(request);
-
         if (results.IsValid)
         {
             var response = new Issue
@@ -63,8 +65,8 @@ public class Api(IDocumentSession session) : ControllerBase
         {
             return BadRequest(results.ToDictionary()); // 400
         }
-    }
 
+    }
     [HttpPost("/issues-rpc")]
     public async Task<ActionResult> AddIssueWithRpcAsync(
       [FromBody] CreateIssueRequestModel request,
@@ -109,14 +111,23 @@ public class Api(IDocumentSession session) : ControllerBase
         {
             return BadRequest(results.ToDictionary()); // 400
         }
+
     }
 }
 
+/*
+ * {
+  "software": "Excel",
+  "description": "I want clippy back"
+} */
+
 public record CreateIssueRequestModel
 {
+
     public string Software { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
 }
+
 
 public record Issue
 {
@@ -127,7 +138,6 @@ public record Issue
     public IssueStatus Status { get; set; }
 
 }
-
 public record IssueWithEmbeddedSupport
 {
     public Guid Id { get; set; }
@@ -135,10 +145,12 @@ public record IssueWithEmbeddedSupport
     public string Software { get; set; } = string.Empty;
     public DateTimeOffset CreatedAt { get; set; }
     public IssueStatus Status { get; set; }
-    public CurrentSupportResponse Support { get; set; } = new();
 
+    public CurrentSupportResponse Support { get; set; } = new();
 }
+
 public enum IssueStatus { Created }
+
 public class CreateIssueRequestModelValidator : AbstractValidator<CreateIssueRequestModel>
 {
     private readonly IReadOnlyList<string> _supportedSoftware = ["excel", "powerpoint", "word"];
@@ -155,7 +167,7 @@ public class CreateIssueRequestModelValidator : AbstractValidator<CreateIssueReq
                 var sw = i.ToLowerInvariant().Trim();
                 return _supportedSoftware.Any(s => s == sw);
 
-            }).WithMessage("Unsupported software. Good luck.");
+            }).WithMessage("Unsupported Software. Good Luck");
 
     }
 }

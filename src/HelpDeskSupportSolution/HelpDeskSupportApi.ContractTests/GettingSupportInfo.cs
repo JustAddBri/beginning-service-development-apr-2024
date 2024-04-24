@@ -1,4 +1,5 @@
-﻿using Alba;
+﻿
+using Alba;
 using HelpDeskSupportApi.Services;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -8,7 +9,7 @@ public class GettingSupportInfo
     [Fact]
     public async Task RouteExists()
     {
-        var host = await AlbaHost.For<Program>();
+        var host = await AlbaHost.For<Program>(); // Going "Raw" here - for realz. No fakes.
 
         var response = await host.Scenario(api =>
         {
@@ -71,6 +72,7 @@ public class GettingSupportInfo
         Assert.Equal(expectedResults, actualResponse);
     }
 }
+
 
 public class FakeOpenBusinessClock : IProvideTheBusinessClock
 {

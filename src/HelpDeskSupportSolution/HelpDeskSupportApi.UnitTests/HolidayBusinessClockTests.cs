@@ -1,11 +1,9 @@
-﻿
-using HelpDeskSupportApi.Services;
+﻿using HelpDeskSupportApi.Services;
 using Microsoft.Extensions.Time.Testing;
 
 namespace HelpDeskSupportApi.UnitTests;
-public class StandardBusinessClockTests
+public class HolidayBusinessClockTests
 {
-    // we are open monday-friday from 9:00 AM ET until 5:00 PM ET
 
     [Theory]
     [MemberData(nameof(OpenTimeExamples))]
@@ -13,7 +11,7 @@ public class StandardBusinessClockTests
     {
         var fakeTime = new FakeTimeProvider(startDateTime: dateToUse);
 
-        var sut = new StandardBusinessClock(fakeTime);
+        var sut = new HolidaysBusinessClock(fakeTime);
 
 
         Assert.True(await sut.AreWeCurrentOpenAsync());
@@ -25,7 +23,7 @@ public class StandardBusinessClockTests
     {
         var fakeTime = new FakeTimeProvider(startDateTime: dateToUse);
 
-        var sut = new StandardBusinessClock(fakeTime);
+        var sut = new HolidaysBusinessClock(fakeTime);
 
         Assert.False(await sut.AreWeCurrentOpenAsync());
     }
@@ -36,7 +34,18 @@ public class StandardBusinessClockTests
     {
         var fakeTime = new FakeTimeProvider(startDateTime: dateToUse);
 
-        var sut = new StandardBusinessClock(fakeTime);
+        var sut = new HolidaysBusinessClock(fakeTime);
+
+        Assert.False(await sut.AreWeCurrentOpenAsync());
+    }
+
+    [Theory]
+    [MemberData(nameof(ClosedOnHolidaysExamples))]
+    public async Task ClosedOnHolidays(DateTimeOffset dateToUse)
+    {
+        var fakeTime = new FakeTimeProvider(startDateTime: dateToUse);
+
+        var sut = new HolidaysBusinessClock(fakeTime);
 
         Assert.False(await sut.AreWeCurrentOpenAsync());
     }
@@ -61,5 +70,11 @@ public class StandardBusinessClockTests
     public static IEnumerable<object[]> ClosedOnWeekendsExamples = [
         [new DateTimeOffset(2024,04,20, 10, 15,00,00, new TimeSpan(-4,0,0))]
         // etc. etc. as many as you need to be confident.
+        ];
+
+    public static IEnumerable<object[]> ClosedOnHolidaysExamples => [
+            [new DateTimeOffset(2024, 12, 25, 13,00,00,00, new TimeSpan(-4,0,0))],
+            [new DateTimeOffset(2024, 7, 4, 13,00,00,00, new TimeSpan(-4,0,0))]
+
         ];
 }

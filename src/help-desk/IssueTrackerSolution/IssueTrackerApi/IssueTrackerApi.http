@@ -5,31 +5,21 @@ Accept: application/json
 
 ###
 
-GET {{IssueTrackerApi_HostAddress}}/issues?software="Excel"
+
+GET {{IssueTrackerApi_HostAddress}}/issues?software=Notepad
 Accept: application/json
 
 ###
 
-GET {{IssueTrackerApi_HostAddress}}/issues/a4cc05b5-5f7a-42e2-bf17-573036c6f833
+POST {{IssueTrackerApi_HostAddress}}/issues-rpc
+Content-Type: application/json
+
+{
+  "software": "Powerpoint",
+  "description": "How do I make them less boring?"
+}
+
+###
+
+GET {{IssueTrackerApi_HostAddress}}/issues/2cee9c32-a7ef-4e12-9ca5-36173dc3d4ea
 Accept: application/json
-
-###
-
-
-POST {{IssueTrackerApi_HostAddress}}/issues
-Content-Type: application/json
- 
-{
-  "software": "powerpoint",
-  "description": "slow slides"
-}
-
-###
-
-POST {{IssueTrackerApi_HostAddress}}/issues
-Content-Type: application/json
- 
-{
-  "software": "other app",
-  "description": "I want clippy back"
-}
